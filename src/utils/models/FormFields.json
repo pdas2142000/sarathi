@@ -1,0 +1,37 @@
+{
+    "login": {
+        "phone": {
+            "label": "phone",
+            "placeholder": "Mobile Number",
+            "errors": {
+                "required": "field is required"
+            }
+        }
+    },
+    "otp": {
+        "varifay_otp": {
+            "label": "OTP",
+            "placeholder": "enter 8 degit code",
+            "errors": {
+                "required": "otp is required"
+            }
+        }
+    },
+    "search_location": {
+        "form_location": {
+            "label": "location",
+            "placeholder": "form location",
+            "errors": {
+                "required": "form location is required"
+            }
+        },
+        "end_location": {
+            "label": "location",
+            "placeholder": "end location",
+            "errors": {
+                "required": "end location is required"
+            }
+        }
+    }
+
+}
