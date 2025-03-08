@@ -6161,7 +6161,7 @@ react-native-otp-entry@^1.8.3:
   resolved "https://registry.yarnpkg.com/react-native-otp-entry/-/react-native-otp-entry-1.8.3.tgz#64f26cf83d3b90f9f068b8ca05aaf4b8d56b8886"
   integrity sha512-cpEXmbaBkMEeQNGeGL54T9RAtHWVggddNgpg9hLr9/5bCL2S/voO3J+60TPfsHk3cmI9+rMxTNH3jbNnhpmZZA==
 
-react-native-reanimated@^3.17.1:
+react-native-reanimated@3.17.1:
   version "3.17.1"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-3.17.1.tgz#42bed044ad046f09efcc00a80fabcc6eb18c7073"
   integrity sha512-ECzLhLxMKLifv34a8799/MHqIazQZV9fLMNSMdixXQlzX71RyL3/ah3cz/h3ERoyhJAYRC2ySLLZho6pXSqMFQ==

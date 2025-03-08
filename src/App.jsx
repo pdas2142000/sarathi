@@ -1,24 +1,30 @@
+/**React imports */
 import React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
 
 /** Liabary*/
 import { NavigationContainer } from '@react-navigation/native'
-import { AppNavigation } from './navigation/stactnav';
-import { AuthProvider } from './utils/context/AuthContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Toast from 'react-native-toast-message';
+
+/**Local imports*/
+import { AuthProvider } from './utils/context/AuthContext';
 import { ms } from './utils/helpers/metrics';
 import { Color, Fonts } from './utils/constant';
+import { AppNavigation } from './navigation/stactnav';
 
+/**Main export*/
 const App = () => {
     const queryClient = new QueryClient();
     return (
         <QueryClientProvider client={queryClient}>
+
             <NavigationContainer>
                 <AuthProvider>
                     <AppNavigation />
                 </AuthProvider>
             </NavigationContainer>
+
             <Toast
                 topOffset={Platform.OS === "ios" ? 50 : 20}
                 position="top"

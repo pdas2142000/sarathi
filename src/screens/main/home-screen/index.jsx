@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useAuth } from '../../../utils/context/AuthContext';
 import { HomeStyles } from './style';
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -16,7 +16,6 @@ const HomeScreen = () => {
 	const styless = HomeStyles
 	const { control, handleSubmit, formState: { errors } } = useForm()
 	const [vehicleList, setVehicleList] = useState([]);
-	console.log("data", vehicleList)
 
 	const LocationSearchBilder = (control) => {
 		return [
@@ -152,7 +151,6 @@ const HomeScreen = () => {
 					}
 				</View>
 			</ScrollView>
-
 			<TouchableOpacity style={styless.sa_search_btn} onPress={() => logout()}>
 				<Text style={styless.sa_search_text}>logout</Text>
 			</TouchableOpacity>

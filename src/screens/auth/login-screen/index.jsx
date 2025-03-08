@@ -1,30 +1,42 @@
-import { View, Text, TouchableOpacity, ScrollView, Image, Modal, Alert, ActivityIndicator } from 'react-native'
+/**React imports */
+import { View, Text, TouchableOpacity, ScrollView, Image, Modal, ActivityIndicator } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
+
+/**Styles*/
 import { LoginStyles } from './styles'
+
+/** Liabary*/
 import { useForm } from 'react-hook-form'
-import CustomCountryCodePicker from '../../../components/form-utils/custom-country-code-picker'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import OtpPopup from '../../../components/form-utils/otp-popup'
-import { Color } from '../../../utils/constant'
-import OtpInputcomponents from '../../../components/form-utils/otp-input'
-import { ms, toast } from '../../../utils/helpers/metrics'
-import CheckIcon from "../../../../assets/svgs/check.svg"
-import { IconProps } from '../../../utils/helpers/Iconprops'
 import { useMutation } from '@tanstack/react-query'
+
+/**Components */
+import CustomCountryCodePicker from '../../../components/form-utils/custom-country-code-picker'
+import OtpInputcomponents from '../../../components/form-utils/otp-input'
+
+/**Local imports*/
+import { Color } from '../../../utils/constant'
+import { ms, toast } from '../../../utils/helpers/metrics'
+import { IconProps } from '../../../utils/helpers/Iconprops'
 import { loginUser, VarifayOtp } from '../../../utils/api-call'
 import { useAuth } from '../../../utils/context/AuthContext'
 
+/**Icons*/
+import CheckIcon from "../../../../assets/svgs/check.svg"
 
+/**Main export*/
 const LoginScreen = () => {
     const { login } = useAuth()
     const styles = LoginStyles
     const otpRef = useRef(null)
+
     const [isChecked, setIsChecked] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState("");
     const [modalVisible, setModalVisible] = useState(false)
     const [countdown, setCountdown] = useState(0);
     const [callingCode, setCallingCode] = useState({ flag: "IN", code: '+91' })
+    
     const { control, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(Schema),
     })
@@ -56,7 +68,6 @@ const LoginScreen = () => {
             },
         ]
     }
-
 
     useEffect(() => {
         let timer;

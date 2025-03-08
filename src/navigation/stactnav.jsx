@@ -4,13 +4,14 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 /**Libraries */
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from '../screens/auth/login-screen';
-import { useAuth } from '../utils/context/AuthContext';
-import HomeScreen from '../screens/main/home-screen';
-import { ms } from '../utils/helpers/metrics';
-import { Color } from '../utils/constant';
 
 /**Components */
+import LoginScreen from '../screens/auth/login-screen';
+import HomeScreen from '../screens/main/home-screen';
+
+/**Local imports*/
+import { useAuth } from '../utils/context/AuthContext';
+import { Color } from '../utils/constant';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,7 +41,7 @@ export const MainStack = () => {
     );
 };
 
- 
+
 export const AppNavigation = () => {
 
     const { Token } = useAuth()
@@ -66,6 +67,7 @@ export const AppNavigation = () => {
                     (
                         <AuthStack />
                     )}
+
             </>
         )
     }
@@ -83,12 +85,12 @@ const SplashScreen = () => (
 const styles = StyleSheet.create({
     se_container: {
         flex: 1,
-        backgroundColor:Color.sa_yellow
+        backgroundColor: Color.sa_yellow
     },
     se_indiator_container: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center"
     },
-   
+
 });
