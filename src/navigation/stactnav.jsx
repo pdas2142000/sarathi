@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 /**Components */
 import LoginScreen from '../screens/auth/login-screen';
 import HomeScreen from '../screens/main/home-screen';
+import OtpScreen from '../screens/auth/otp-screen';
 
 /**Local imports*/
 import { useAuth } from '../utils/context/AuthContext';
@@ -24,6 +25,7 @@ export const AuthStack = () => {
             }}
         >
             <Stack.Screen name='LoginScreen' component={LoginScreen} />
+            <Stack.Screen name='OtpScreen' component={OtpScreen} />
         </Stack.Navigator>
     );
 };

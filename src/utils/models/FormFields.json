@@ -4,16 +4,21 @@
             "label": "phone",
             "placeholder": "Mobile Number",
             "errors": {
-                "required": "field is required"
+                "required": "field is required",
+                "invalid": "please enter a valid 10-digit phone number."
             }
         }
     },
     "otp": {
         "varifay_otp": {
             "label": "OTP",
-            "placeholder": "enter 8 degit code",
+            "placeholder": "enter 4 degit code",
             "errors": {
-                "required": "otp is required"
+                "required": "otp is required",
+                "pattern": {
+                    "value": 4,
+                    "message": "enter 4 digit code sent to your register number"
+                }
             }
         }
     },
@@ -33,5 +38,4 @@
             }
         }
     }
-
 }

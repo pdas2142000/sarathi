@@ -50,11 +50,6 @@ export const LoginStyles = StyleSheet.create({
         justifyContent: "center",
         marginTop:ms(5)
     },
-    sa_submit_otp_btn: {
-        height: ms(45),
-        width:ms(220),
-      
-    },
     sa_get_otp_text:{
         fontFamily: Fonts.Font_500,
         fontSize: ms(15),
@@ -90,81 +85,7 @@ export const LoginStyles = StyleSheet.create({
         color: '#007bff',
         marginTop: 10,
     },
-    sa_modal_header:{
-        position:"relative",
-        width:"100%",
-        alignItems:"center",
-    },
-    sa_header_box:{
-        width:ms(180),
-        height:ms(180),
-        position:"absolute",
-        alignItems:"center",
-        justifyContent:"center",
-        borderWidth:ms(5),
-        borderColor:Color.sa_white,
-        backgroundColor:Color.sa_yellow,
-        borderRadius:ms(100), 
-        top:ms(-100), 
-    },
-    sa_header_img_box:{
-        width:ms(120),
-        height:ms(120),
-    },
-    sa_header_img:{
-        width:"100%",
-        height:"100%",
-    },
-    sa_content:{
-        marginTop:ms(100)
-    },
-    sa_modal_otp_text:{
-        alignItems:"center",
-        justifyContent:"center"
-    },
-    sa_otp_text_hade:{
-        fontFamily:Fonts.Font_500,
-        fontSize:ms(19),
-        color:Color.sa_black
-    },
-    sa_otp_text:{
-        fontFamily:Fonts.Font_500,
-        fontSize:ms(16),
-        color:Color.sa_grey + "80",
-        marginTop:ms(5)
-    },
-
-    sa_check_box:{
-        width:ms(18),
-        height:ms(18),
-        borderRadius:ms(4),
-        backgroundColor:Color.sa_light_blue,
-        alignItems:"center",
-        justifyContent:"center",
-        marginRight:ms(10),
-
-    },
-    sa_bottom_box_container:{
-        flexDirection:"row",
-        alignItems:"center",
-        marginLeft:ms(30),
-        marginRight:ms(10),
-        marginVertical:ms(25)
-    },
-    sa_check_box_text:{
-        fontFamily:Fonts.Font_400,
-        fontSize:ms(15),
-    },
-    sa_resend_text:{
-        fontFamily:Fonts.Font_400,
-        fontSize:ms(17),
-        color:Color.sa_grey,
-    },
-    sa_resend_title:{
-        fontFamily:Fonts.Font_600,
-        fontSize:ms(18),
-        color:Color.sa_blue,
-        textAlign:"center"
-    }
+   
+   
 })
 

@@ -13,17 +13,14 @@ import { ms } from '../../../utils/helpers/metrics'
 import { Color, Fonts } from '../../../utils/constant'
 
 /** Main Export */
-const OtpInputcomponents = ({ name, control, otpRef,otp_digits }) => {
+const OtpInputcomponents = ({ name, control, otpRef, otp_digits }) => {
     return (
         <Controller
             name={name}
             control={control}
-            render={({ field: { onChange }, fieldState: { error } }) => {
-                const errorMessage = error
-                    ? error.message
-                        ? error.message
-                        : error
-                    : ''
+            render={({ field: { onChange }, value, fieldState: { error } }) => {
+                console.log(value)
+                const errorMessage = error?.message || (otp_digits === undefined ? "OTP digits are missing" : "");
                 return (
                     <>
                         <OtpInput
@@ -41,7 +38,8 @@ const OtpInputcomponents = ({ name, control, otpRef,otp_digits }) => {
                             }}
                         />
                         {errorMessage ? (
-                            <Text style={styles.ws_error} numberOfLines={1} ellipsizeMode="tail">
+
+                            <Text style={[styles.ws_error,]} numberOfLines={1} ellipsizeMode="tail">
                                 {errorMessage}
                             </Text>
                         ) : null
@@ -59,7 +57,7 @@ export default OtpInputcomponents
 
 const styles = StyleSheet.create({
     container: {
-        width:ms(250),
+        width: ms(250),
         alignItems: "center",
         justifyContent: "space-evenly",
     },
@@ -69,7 +67,6 @@ const styles = StyleSheet.create({
         borderRadius: ms(5),
         borderWidth: ms(1.5),
         backgroundColor: Color.sa_light_blue,
-
     },
     focusStick: {
         height: ms(15),
@@ -79,11 +76,11 @@ const styles = StyleSheet.create({
         fontSize: ms(19),
         fontFamily: Fonts.Font_500
     },
-    ws_error:{
-        color:"#B8001F",
-        fontFamily:Fonts.Font_500,
-        fontSize:ms(15),
-        marginTop:ms(5)
+    ws_error: {
+        color: "#B8001F",
+        fontFamily: Fonts.Font_500,
+        fontSize: ms(15),
+        marginTop: ms(5),
     }
 
 })

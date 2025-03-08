@@ -231,9 +231,9 @@ const styles = StyleSheet.create({
         width:ms(5),
     },
     ws_error:{
-        color:"red",
+        color: "#B8001F",
         fontFamily:Fonts.Font_500,
-        fontSize:ms(12),
+        fontSize:ms(15),
         marginTop:ms(5),
         marginLeft:ms(5)
     }
