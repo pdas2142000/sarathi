@@ -19,8 +19,8 @@ export const VarifayOtp = async (data) => {
 	const res = await API.post("/user/login", payload);
 	return res;
 };
-
-export const searchLocation = async (data, token) => {
+ 
+export const SearchLocation = async (data, token) => {
 	const payload = {
 		from: data?.form_location,
 		to: data?.end_location,
@@ -29,5 +29,7 @@ export const searchLocation = async (data, token) => {
 	const res = await API.post("/search-vehicle",payload,
 		{ headers: { Authorization: `Bearer ${token}` } }
 	);
+
 	return res;
 };
+
