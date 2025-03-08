@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native"
 import { ms } from "../helpers/metrics"
 
 export const Color = {
-    sa_yellow: '#eccb00',
+    sa_yellow: '#ebd873',
     sa_border:"#303030",
     sa_light_blue:"#cfe4ff",
     sa_border_blue:"#8faeee",
@@ -10,6 +10,8 @@ export const Color = {
     sa_white:"white",
     sa_grey:"#818384",
     sa_black:"#000000",
+    sa_background:"#f8f8f8",
+    sa_error: "#B8001F"
 }
 
 export const Fonts = {

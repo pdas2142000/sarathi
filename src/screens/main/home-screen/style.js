@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
-import { Color, Fonts } from "../../../utils/constant";
+import { Color, CommonSizes, Fonts } from "../../../utils/constant";
 import { ms } from "../../../utils/helpers/metrics";
 
 export const HomeStyles = StyleSheet.create({
     sa_container: {
         flex: 1,
-        backgroundColor: Color.sa_white,
-        paddingHorizontal: ms(16)
+        backgroundColor: Color.sa_background,
+        paddingHorizontal:CommonSizes.pedding_value
     },
     sa_content: {
         height: ms(150),

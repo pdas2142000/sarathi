@@ -60,11 +60,11 @@ const OtpScreen = ({ route }) => {
         mutationKey: ['user_otp_varifay'],
         mutationFn: (data) => VarifayOtp(data),
         onSuccess: async (response) => {
-            console.log(response)
+    
             if (response.data.status) {
                 login({ Token: response?.data?.token || null });
                 // Show success toast
-                toast("success", { title: response?.data.sent });
+                toast("success", { title: "successfully logged in" });
             } else {
                 // Show error toast
                 toast("error", { title: response?.data.sent });

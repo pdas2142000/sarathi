@@ -1,18 +1,26 @@
+/**React imports */
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
-import React, { useRef, useState } from 'react'
-import { useAuth } from '../../../utils/context/AuthContext';
-import { HomeStyles } from './style';
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { fetchAllData, SearchLocation } from '../../../utils/api-call';
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
+import React, { useState } from 'react'
+
+/** Liabary*/
+import { useMutation } from "@tanstack/react-query";
 import { useForm } from 'react-hook-form'
-import CustomInput from '../../../components/form-utils/custom-input';
-import { FormStyle } from '../../../utils/constant';
+
+/**Local imports*/
+import { useAuth } from '../../../utils/context/AuthContext';
+import { SearchLocation } from '../../../utils/api-call';
 import { ms } from '../../../utils/helpers/metrics';
 
+/**Styles*/
+import { HomeStyles } from './style';
+import { FormStyle } from '../../../utils/constant';
+
+/**Components */
+import CustomInput from '../../../components/form-utils/custom-input';
+
+/**Main export*/
 const HomeScreen = () => {
-	const { logout, Token } = useAuth();
+	const { Token } = useAuth();
 	const styless = HomeStyles
 	const { control, handleSubmit, formState: { errors } } = useForm()
 	const [vehicleList, setVehicleList] = useState([]);
@@ -69,7 +77,7 @@ const HomeScreen = () => {
 			{/* {
 				vehicleList.vehicle.length > 0 ?
 					<View style={{ gap: ms(10), marginTop: ms(20) }}>
-						{
+						{ 
 							vehicleList?.vehicle?.Auto?.vehicle_list?.map((item, index) => (
 								<View key={index} style={styless.sa_logout_container}>
 									<TouchableOpacity style={styless.sa_list_image_btn}>
@@ -112,7 +120,7 @@ const HomeScreen = () => {
 					</View>
 			} */}
 			<ScrollView showsVerticalScrollIndicator={false}>
-				<View style={{ gap: ms(10), marginTop: ms(20), flexGrow: 1 }}>
+				<View style={{ gap: ms(10), marginTop: ms(20),}}>
 					{
 						vehicleList?.vehicle?.Auto?.vehicle_list?.map((item, index) => (
 							<View key={index} style={styless.sa_logout_container}>
@@ -151,20 +159,8 @@ const HomeScreen = () => {
 					}
 				</View>
 			</ScrollView>
-			<TouchableOpacity style={styless.sa_search_btn} onPress={() => logout()}>
-				<Text style={styless.sa_search_text}>logout</Text>
-			</TouchableOpacity>
 		</View>
 	)
 }
 
 export default HomeScreen
-
-
-const Schema = yup.object().shape({
-	form_location: yup.string()
-		.required('form location is required'),
-	end_location: yup.string()
-		.required('end location is required'),
-
-})

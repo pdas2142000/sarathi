@@ -13,6 +13,7 @@ import OtpScreen from '../screens/auth/otp-screen';
 /**Local imports*/
 import { useAuth } from '../utils/context/AuthContext';
 import { Color } from '../utils/constant';
+import BottomNav from './tab-nav';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,12 +34,12 @@ export const AuthStack = () => {
 export const MainStack = () => {
     return (
         <Stack.Navigator
-            initialRouteName="HomeScreen"
+            initialRouteName="MainHome"
             screenOptions={{
                 headerShown: false,
             }}
         >
-            <Stack.Screen name='HomeScreen' component={HomeScreen} />
+            <Stack.Screen name='MainHome' component={BottomNav} />
         </Stack.Navigator>
     );
 };
