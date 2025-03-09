@@ -14,6 +14,7 @@ import OtpScreen from '../screens/auth/otp-screen';
 import { useAuth } from '../utils/context/AuthContext';
 import { Color } from '../utils/constant';
 import BottomNav from './tab-nav';
+import SingleVehicleViewScreen from '../screens/main/single-vehicle-view-screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,7 @@ export const MainStack = () => {
             }}
         >
             <Stack.Screen name='MainHome' component={BottomNav} />
+            <Stack.Screen name='SingleVehicleViewScreen' component={SingleVehicleViewScreen} />
         </Stack.Navigator>
     );
 };

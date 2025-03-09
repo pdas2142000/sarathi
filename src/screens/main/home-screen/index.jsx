@@ -1,5 +1,5 @@
 /**React imports */
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView, ActivityIndicator } from 'react-native'
 import React, { useState } from 'react'
 
 /** Liabary*/
@@ -13,20 +13,23 @@ import { ms } from '../../../utils/helpers/metrics';
 
 /**Styles*/
 import { HomeStyles } from './style';
-import { FormStyle } from '../../../utils/constant';
+import { Color, FormStyle } from '../../../utils/constant';
 
 /**Components */
 import CustomInput from '../../../components/form-utils/custom-input';
+import { useNavigation } from '@react-navigation/native';
 
 /**Main export*/
 const HomeScreen = () => {
 	const { Token } = useAuth();
 	const styless = HomeStyles
-	const { control, handleSubmit, formState: { errors } } = useForm()
-	const [vehicleList, setVehicleList] = useState([]);
-	console.log(vehicleList?.vehicle?.length)
-
 	const QueryClient = useQueryClient()
+	const Navigation = useNavigation()
+
+	const [vehicleList, setVehicleList] = useState([]);
+
+
+	const { control, handleSubmit, formState: { errors } } = useForm()
 
 	const LocationSearchBilder = (control) => {
 		return [
@@ -72,7 +75,10 @@ const HomeScreen = () => {
 				})}
 			</View>
 			<TouchableOpacity style={styless.sa_search_btn} onPress={handleSubmit(OnSubmit)}>
-				<Text style={styless.sa_search_text}>Search</Text>
+				{
+					UserSearchLocation.isPending ? <ActivityIndicator size="small" color={Color.sa_black} /> :
+						<Text style={styless.sa_search_text}>Search</Text>
+				}
 			</TouchableOpacity>
 
 			<ScrollView showsVerticalScrollIndicator={false}>
@@ -82,7 +88,10 @@ const HomeScreen = () => {
 							{
 								vehicleList?.vehicle?.Auto?.vehicle_list?.map((item, index) => (
 									<View key={index} style={styless.sa_logout_container}>
-										<TouchableOpacity style={styless.sa_list_image_btn}>
+										<TouchableOpacity
+											style={styless.sa_list_image_btn}
+											onPress={() => Navigation.navigate("SingleVehicleViewScreen",{header_name:item?.name})}
+										>
 											<View style={styless.sa_list_right}>
 												<View style={styless.sa_list_image}>
 													<Image source={require("../../../../assets/image/auto.png")} style={styless.sa_image} />
@@ -100,7 +109,7 @@ const HomeScreen = () => {
 							{
 								vehicleList?.vehicle?.Bus?.vehicle_list?.map((item, index) => (
 									<View key={index} style={styless.sa_logout_container}>
-										<TouchableOpacity style={styless.sa_list_image_btn}>
+										<TouchableOpacity style={styless.sa_list_image_btn} onPress={() => Navigation.navigate("SingleVehicleViewScreen",{header_name:item?.name})}>
 											<View style={styless.sa_list_right}>
 												<View style={styless.sa_list_image}>
 													<Image source={require("../../../../assets/image/bus_01.png")} style={styless.sa_image} />
